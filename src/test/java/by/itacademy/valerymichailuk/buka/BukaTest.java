@@ -20,13 +20,15 @@ public class BukaTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(BukaPage.URL);
-        WebElement logoBuka = driver.findElement(By.xpath(BukaPage.LOGO_BUKA));
-            }
 
     @Test
     public void test1() {
-        String inputLogin = driver.findElement(By.xpath(TerrapizzaPage.MARGARITA_IN_CARD)).getText();
-        Assertions.assertEquals("Пицца Маргарита Классическая 32 см", cardWithMargarita);
+        WebElement inputLogin = driver.findElement(By.xpath(BukaPage.LOGIN_INPUT));
+        inputLogin.click();
+            WebElement inputLoginError = driver.findElement(By.xpath(BukaPage.LOGIN_INPUT));
+            inputLogin.click();
+        String inputError = driver.findElement(By.xpath()).getText();
+        Assertions.assertEquals("Не введен пароль", cardWithMargarita);
     }
 
 
