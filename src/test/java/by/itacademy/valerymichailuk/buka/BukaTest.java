@@ -21,7 +21,6 @@ public class BukaTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(BukaPage.URL);
         WebElement logoBuka = driver.findElement(By.xpath(BukaPage.LOGO_BUKA));
-        Assertions.assertEquals(logoBuka, );
             }
 
     @Test
