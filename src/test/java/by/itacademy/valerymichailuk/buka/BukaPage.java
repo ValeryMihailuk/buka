@@ -5,4 +5,5 @@ public class BukaPage {
     public static  final String LOGIN = "valery.mihkailuk@gmail.com";
     public static  final String PASSWORD = "83528352";
     public static final String LOGIN_INPUT = "/html/body/div[1]/div/div[2]/div[1]/div[1]/div/a/img";
+    public static  final String LOGO_BUKA ="/html/body/div[1]/div/div[1]/a/img";
 }
