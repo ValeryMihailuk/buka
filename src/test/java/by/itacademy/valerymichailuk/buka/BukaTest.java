@@ -25,7 +25,8 @@ public class BukaTest {
 
     @Test
     public void test1() {
-
+        String inputLogin = driver.findElement(By.xpath(TerrapizzaPage.MARGARITA_IN_CARD)).getText();
+        Assertions.assertEquals("Пицца Маргарита Классическая 32 см", cardWithMargarita);
     }
 
 
