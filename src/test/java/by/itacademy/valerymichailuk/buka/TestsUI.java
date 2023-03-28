@@ -18,6 +18,7 @@ public class TestsUI {
         chromeOptions.addArguments("--disable-infobars=*");
         driver = new ChromeDriver(chromeOptions);
         driver.get(Pages.URL);
+        step = new Steps(driver);
     }
 
     @Test
