@@ -1,7 +1,6 @@
 package by.itacademy.valerymichailuk.buka;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -10,9 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.concurrent.TimeUnit;
-
-public class BukaTest {
+public class Tests {
     WebDriver driver;
 
     @BeforeEach
@@ -21,19 +18,19 @@ public class BukaTest {
         chromeOptions.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        driver.get(BukaPage.URL);
+        driver.get(Pages.URL);
     }
 
     @Test
-    public void test1() {
-        WebElement btnLogin = driver.findElement(By.xpath(BukaPage.LOGIN_INPUT));
+    public void testLoginSearch() {
+        WebElement btnLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
         btnLogin.click();
-        WebElement inputLogin = driver.findElement(By.xpath(BukaPage.LOGIN));
+        WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN));
         inputLogin.sendKeys(User.LOGIN_TEXT);
-        WebElement inputPassword = driver.findElement(By.xpath(BukaPage.PASSWORD));
+        WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD));
         inputPassword.sendKeys(User.PASSWORD_TEXT);
-        WebElement btnSubmit = driver.findElement(By.xpath(BukaPage.BTM_SUBMIT));
-        WebElement inputSearch = driver.findElement(By.xpath(BukaPage.SEARCH));
+        WebElement btnSubmit = driver.findElement(By.xpath(Pages.BTM_SUBMIT));
+        WebElement inputSearch = driver.findElement(By.xpath(Pages.SEARCH));
         inputPassword.sendKeys(User.SEARCH_TEXT);
     }
 

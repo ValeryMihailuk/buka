@@ -1,4 +1,5 @@
 package by.itacademy.valerymichailuk.buka;
 
-public class BukaStep {
+public class Steps {
+    public  static  void
 }

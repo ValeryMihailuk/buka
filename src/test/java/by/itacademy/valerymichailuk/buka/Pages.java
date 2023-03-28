@@ -1,6 +1,6 @@
 package by.itacademy.valerymichailuk.buka;
 
-public class BukaPage {
+public class Pages {
     public static final String URL = "https://www.shop.buka.ru/";
 
     public static final String LOGIN_INPUT = "/html/body/div[1]/div/div[2]/div[1]/div[1]/div/a";
