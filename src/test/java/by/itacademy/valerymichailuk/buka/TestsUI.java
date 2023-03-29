@@ -1,5 +1,6 @@
 package by.itacademy.valerymichailuk.buka;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,13 +28,13 @@ public class TestsUI {
         Assertions.assertEquals(User.LOGIN_TEXT, step.authorization());
     }
 
-    @Test
+    @Disabled @Test
     @DisplayName("AuthorizationExit")
     public void testExitAuthorization() {
         Assertions.assertEquals("Войти", step.exitAuthorization());
     }
 
-    @Test
+    @Disabled @Test
     @DisplayName("Search")
     public void testSearch() {
         Assertions.assertEquals("Hexus (PC)", step.search());

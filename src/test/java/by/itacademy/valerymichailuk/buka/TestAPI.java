@@ -30,7 +30,7 @@ public class TestAPI {
     public void testPost403() {
         JSONObject request = new JSONObject();
         request.put("login", User.LOGIN_TEXT);
-        request.put("pwd", "err");
+        request.put("pwd", "");
         baseURI = "https://shop.buka.ru/api";
         given().
                 body(request.toJSONString()).
