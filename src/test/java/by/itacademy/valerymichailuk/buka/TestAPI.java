@@ -13,7 +13,7 @@ public class TestAPI {
     @DisplayName("Post422NoLogin")
     public void testPost() {
 
-        Map<String, Object> =new HashMap<String, Object>();
+        Map<String, Object> = new HashMap<String, Object>();
 
 
         @Test
