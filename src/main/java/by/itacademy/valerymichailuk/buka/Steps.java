@@ -24,7 +24,7 @@ public class Steps {
         return authorizationProfile.getText();
     }
 
-    public String exitauthorization() {
+    public String exitAuthorization() {
         WebElement btnAuthorization = driver.findElement(By.xpath(Pages.PROFILE));
         btnAuthorization.click();
         WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN));

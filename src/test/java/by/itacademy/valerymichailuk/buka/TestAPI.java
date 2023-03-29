@@ -12,18 +12,17 @@ public class TestAPI {
     @Test
     @DisplayName("Post422NoLogin")
     public void testPost() {
-
         Map<String, Object> = new HashMap<String, Object>();
 
-
-        @Test
-        @DisplayName("Get200Login")
-        public void testGet () {
-            given().
-                    get("/api/f/v2/auth/login").
-                    then().
-                    statusCode(200).
-                    body().
-
-        }
     }
+
+    @Test
+    @DisplayName("Get200Login")
+    public void testGet() {
+        given().
+                get("/api/f/v2/auth/login").
+                then().
+                statusCode(200).
+                body().
+    }
+}
