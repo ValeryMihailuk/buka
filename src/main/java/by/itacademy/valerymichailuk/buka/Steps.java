@@ -12,11 +12,11 @@ public class Steps {
     }
 
     public String authorization() {
-        WebElement btnAuthorization = driver.findElement(By.xpath(Pages.PROFILE));
+        WebElement btnAuthorization = driver.findElement(By.xpath(Pages.PROFILE_INPUT));
         btnAuthorization.click();
-        WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN));
+        WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
         inputLogin.sendKeys(User.LOGIN_TEXT);
-        WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD));
+        WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
         inputPassword.sendKeys(User.PASSWORD_TEXT);
         WebElement btnAuthorizationInput = driver.findElement(By.xpath(Pages.BTM_SUBMIT));
         btnAuthorizationInput.click();
@@ -24,12 +24,12 @@ public class Steps {
         return authorizationProfile.getText();
     }
 
-    public String exitauthorization() {
-        WebElement btnAuthorization = driver.findElement(By.xpath(Pages.PROFILE));
+    public String exitAuthorization() {
+        WebElement btnAuthorization = driver.findElement(By.xpath(Pages.PROFILE_INPUT));
         btnAuthorization.click();
-        WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN));
+        WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
         inputLogin.sendKeys(User.LOGIN_TEXT);
-        WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD));
+        WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
         inputPassword.sendKeys(User.PASSWORD_TEXT);
         WebElement btnAuthorizationInput = driver.findElement(By.xpath(Pages.BTM_SUBMIT));
         btnAuthorizationInput.click();

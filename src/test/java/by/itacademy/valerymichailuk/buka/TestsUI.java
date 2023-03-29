@@ -14,9 +14,8 @@ public class TestsUI {
     @BeforeEach
     public void warmUpBuka() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*");
-        chromeOptions.addArguments("--start-maximized=*");
-        chromeOptions.addArguments("--disable-infobars=*");
+        chromeOptions.addArguments("--remote-allow-origins=*",
+                "--start-maximized=*","--disable-infobars=*");
         driver = new ChromeDriver(chromeOptions);
         driver.get(Pages.URL);
         step = new Steps(driver);
@@ -31,7 +30,7 @@ public class TestsUI {
     @Test
     @DisplayName("AuthorizationExit")
     public void testExitAuthorization() {
-        Assertions.assertEquals("Войти", step.exitauthorization());
+        Assertions.assertEquals("Войти", step.exitAuthorization());
     }
 
     @Test
