@@ -30,7 +30,7 @@ public class TestsUI {
     @Test
     @DisplayName("AuthorizationExit")
     public void testExitAuthorization() {
-        Assertions.assertEquals("Войти", step.exitAuthorization();
+        Assertions.assertEquals("Войти", step.exitAuthorization());
     }
 
     @Test
