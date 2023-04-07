@@ -1,11 +1,12 @@
-package by.itacademy.valerymichailuk.buka;
+package by.itacademy.valerymichailuk.buka.ui;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import by.itacademy.valerymichailuk.buka.pages.Pages;
+import by.itacademy.valerymichailuk.buka.steps.Steps;
+import by.itacademy.valerymichailuk.buka.user.User;
 
 public class TestsUI {
     WebDriver driver;

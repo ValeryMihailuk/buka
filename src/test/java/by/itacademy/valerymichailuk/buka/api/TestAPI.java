@@ -1,11 +1,9 @@
-package by.itacademy.valerymichailuk.buka;
+package by.itacademy.valerymichailuk.buka.api;
 
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
+import by.itacademy.valerymichailuk.buka.user.User;
 
 import static io.restassured.RestAssured.*;
 

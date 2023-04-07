@@ -1,4 +1,4 @@
-package by.itacademy.valerymichailuk.buka;
+package by.itacademy.valerymichailuk.buka.search;
 
 public class Search {
 

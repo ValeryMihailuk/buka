@@ -1,4 +1,4 @@
-package by.itacademy.valerymichailuk.buka;
+package by.itacademy.valerymichailuk.buka.user;
 
 public class User {
     public static  final String LOGIN_TEXT = "valery.mihkailuk@gmail.com";

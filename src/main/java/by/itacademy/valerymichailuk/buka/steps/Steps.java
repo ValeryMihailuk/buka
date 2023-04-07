@@ -1,8 +1,11 @@
-package by.itacademy.valerymichailuk.buka;
+package by.itacademy.valerymichailuk.buka.steps;
 
+import by.itacademy.valerymichailuk.buka.user.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import by.itacademy.valerymichailuk.buka.pages.Pages;
+import by.itacademy.valerymichailuk.buka.search.Search;
 
 public class Steps {
     WebDriver driver;

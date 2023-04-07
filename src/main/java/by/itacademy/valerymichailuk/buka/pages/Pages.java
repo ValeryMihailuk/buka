@@ -1,4 +1,4 @@
-package by.itacademy.valerymichailuk.buka;
+package by.itacademy.valerymichailuk.buka.pages;
 
 public class Pages {
     public static final String URL = "https://www.shop.buka.ru/";
