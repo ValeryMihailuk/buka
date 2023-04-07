@@ -1,18 +1,22 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
-import org.junit.jupiter.api.*;
+import jdk.jfr.Name;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
 public class TestsUI {
     WebDriver driver;
     Steps step;
 
-    @BeforeEach
+    @BeforeTest
     public void warmUpBuka() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*",
@@ -23,25 +27,25 @@ public class TestsUI {
     }
 
     @Test
-    @DisplayName("Authorization")
+    @Name("Authorization")
     public void testAuthorization() {
-        Assertions.assertEquals(User.LOGIN_TEXT, step.authorization());
+        Assertion.asserts(User.LOGIN_TEXT, step.authorization());
     }
 
     @Test
-    @DisplayName("AuthorizationExit")
+    @Name("AuthorizationExit")
     public void testExitAuthorization() {
-        Assertions.assertEquals("Войти", step.exitAuthorization());
+        Assertion.assertEquals("Войти", step.exitAuthorization());
     }
 
     @Test
-    @DisplayName("Search")
+    @Name("Search")
     public void testSearch() {
-        Assertions.assertEquals("Hexus (PC)", step.search());
+        Assertion.assertEquals("Hexus (PC)", step.search());
     }
 
 
-    @AfterEach
+    @AfterTest
     public void closeTestBuka() {
         driver.quit();
     }
