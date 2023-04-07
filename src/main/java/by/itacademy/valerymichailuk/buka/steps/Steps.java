@@ -1,11 +1,14 @@
 package by.itacademy.valerymichailuk.buka.steps;
 
 import by.itacademy.valerymichailuk.buka.user.User;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.search.Search;
+
+import java.util.Random;
 
 public class Steps {
     WebDriver driver;
@@ -20,13 +23,13 @@ public class Steps {
         return this;
     }
 
-    public Steps inputLogin() {
+    public Steps inputLogin(String login) {
         WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
         inputLogin.sendKeys(User.LOGIN_TEXT);
         return this;
     }
 
-    public Steps inputPassword() {
+    public Steps inputPassword(String password) {
         WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
         inputPassword.sendKeys(User.PASSWORD_TEXT);
         return this;
@@ -45,13 +48,15 @@ public class Steps {
     }
 
     public Steps checkInvalidLogin() {
-        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.));
-        authorizationProfile.getText();
+        Faker fakerLogin = new Faker(new Random(24));
+        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
+        authorizationProfile.sendKeys(fakerLogin.name());
         return this;
     }
     public Steps checkInvalidPassword() {
-        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.));
-        authorizationProfile.getText();
+        Faker fakerLogin = new Faker(new Random(24));
+        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
+        authorizationProfile.sendKeys(fakerLogin.name());
         return this;
     }
     public Steps checkInvalidEmptyInput() {
