@@ -19,7 +19,7 @@ public class TestsUI {
                 "--start-maximized=*","--disable-infobars=*");
         driver = new ChromeDriver(chromeOptions);
         driver.get(Pages.URL);
-        step = new Steps(driver);
+        step = new steps(driver);
     }
 
     @Test
