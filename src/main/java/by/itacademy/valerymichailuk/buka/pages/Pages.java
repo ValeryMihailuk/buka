@@ -1,15 +1,19 @@
 package by.itacademy.valerymichailuk.buka.pages;
 
+import org.openqa.selenium.WebDriver;
+
 public class Pages {
+    protected WebDriver driver;
     public static final String URL = "https://www.shop.buka.ru/";
 
-    public static final String PROFILE_INPUT = "/html/body/div[1]/div/div[2]/div[1]/div[1]/div/a";
-    public static final String AUTHORIZATION_PROFILE = "/html/body/div[1]/div/div[2]/div[1]/div[1]/div[2]/div[1]/a";
-    public static final String LOGIN_INPUT = "/html/body/div[2]/div/div/div/form/div[1]/div[1]/div/div[2]/input";
-    public static final String PASSWORD_INPUT = "/html/body/div[2]/div/div/div/form/div[1]/div[2]/div/div[2]/input";
-    public static final String ERROR = "/html/body/div[2]/div/div/div/form/div[3]/ul";
-    public static final String BTM_SUBMIT = "/html/body/div[2]/div/div/div/form/div[4]/div[2]/button";
-    public static final String EXIT = "/html/body/div[1]/div/div[2]/div[1]/div[1]/div[2]/div[3]/a";
+    public static final String PROFILE_INPUT = "//*[@data-variant=\"normal\"]/div/a/img";
+    public static final String BUTTON_AUTHORIZATION_INPUT = "//*[@class='btn-red width-100']";
+    public static final String LOGIN_INPUT = "//*[@name='login']";
+    public static final String PASSWORD_INPUT = "//*[@name='pwd']";
+    public static final String ERROR = "//*[@class='error-login']/ul";
+    public static final String CHECK_AUTHORIZATION = "(//*[@href='/profile'])[2]";
+
+    public static final String EXIT_PROFILE = "(//*[@href='/logout'])[1]";
     public static final String INVITATION_INPUT = "/html/body/div[2]/div/div/div/div[1]";
     public static final String SEARCH = "/html/body/div[1]/div/div[2]/form/input";
     public static final String BTN_SEARCH = "/html/body/div[1]/div/div[2]/form/button[1]";

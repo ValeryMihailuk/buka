@@ -1,20 +1,27 @@
 package by.itacademy.valerymichailuk.buka.steps;
 
+import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
+import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.user.User;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.search.Search;
 
+import java.net.URL;
 import java.util.Random;
 
 public class Steps {
     WebDriver driver;
 
     Steps(WebDriver driver) {
-        this.driver = driver;
+
+        this.driver = AvtoDriver.getDriver();
+    }
+    public Steps openBuka () {
+        driver.get(Pages.URL);
+        return this;
     }
 
     public Steps inputAuthorization() {

@@ -1,10 +1,8 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
+import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
 import jdk.jfr.Name;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.annotations.AfterTest;
@@ -13,17 +11,11 @@ import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
 public class TestsUI {
-    WebDriver driver;
-    Steps step;
+    public WebDriver driver;
 
     @BeforeTest
     public void warmUpBuka() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*",
-                "--start-maximized=*","--disable-infobars=*");
-        driver = new ChromeDriver(chromeOptions);
-        driver.get(Pages.URL);
-        step = new steps(driver);
+        AvtoDriver avtoDriver;
     }
 
     @Test
@@ -47,6 +39,6 @@ public class TestsUI {
 
     @AfterTest
     public void closeTestBuka() {
-        driver.quit();
+        AvtoDriver.closeDriver();
     }
 }
