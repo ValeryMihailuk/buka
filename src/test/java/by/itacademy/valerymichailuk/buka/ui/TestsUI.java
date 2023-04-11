@@ -1,9 +1,8 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
 import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
+import by.itacademy.valerymichailuk.buka.pages.Pages;
 import jdk.jfr.Name;
-import org.openqa.selenium.WebDriver;
-import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -11,17 +10,15 @@ import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
 public class TestsUI {
-    public WebDriver driver;
+   Pages itsPage;
 
     @BeforeTest
     public void warmUpBuka() {
-        AvtoDriver avtoDriver;
+        itsPage = new Pages();
     }
-
     @Test
-    @Name("Authorization")
     public void testAuthorization() {
-        Assertion.asserts(User.LOGIN_TEXT, step.authorization());
+        Assertion.asserts(User.USER_NAME, step.authorization());
     }
 
     @Test
@@ -35,6 +32,7 @@ public class TestsUI {
     public void testSearch() {
         Assertion.assertEquals("Hexus (PC)", step.search());
     }
+
 
 
     @AfterTest

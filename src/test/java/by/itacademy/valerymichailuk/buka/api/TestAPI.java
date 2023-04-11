@@ -27,7 +27,7 @@ public class TestAPI {
     @DisplayName("Post403BadPwd")
     public void testPost403() {
         JSONObject request = new JSONObject();
-        request.put("login", User.LOGIN_TEXT);
+        request.put("login", User.USER_NAME);
         request.put("pwd", "err");
         baseURI = "https://shop.buka.ru/api";
         given().
@@ -41,8 +41,8 @@ public class TestAPI {
     @DisplayName("Post200Authorization")
     public void testPost200() {
         JSONObject request = new JSONObject();
-        request.put("login", User.LOGIN_TEXT);
-        request.put("pwd", User.PASSWORD_TEXT);
+        request.put("login", User.USER_NAME);
+        request.put("pwd", User.USER_PASSWORD);
         baseURI = "https://shop.buka.ru/api";
         given().
                 body(request.toJSONString()).

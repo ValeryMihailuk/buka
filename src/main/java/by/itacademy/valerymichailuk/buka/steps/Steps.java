@@ -9,115 +9,119 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import by.itacademy.valerymichailuk.buka.search.Search;
 
-import java.net.URL;
 import java.util.Random;
 
 public class Steps {
     WebDriver driver;
 
     Steps(WebDriver driver) {
-
         this.driver = AvtoDriver.getDriver();
     }
-    public Steps openBuka () {
+
+    public Steps openBuka() {
         driver.get(Pages.URL);
         return this;
     }
 
-    public Steps inputAuthorization() {
-        WebElement btnAuthorization = driver.findElement(By.xpath(Pages.PROFILE_INPUT));
-        btnAuthorization.click();
+    public Steps userAccountLogin() {
+        WebElement buttonAccount = driver.findElement(By.xpath(Pages.ACCOUNT));
+        buttonAccount.click();
+        return this;
+
+    }
+
+    public Steps userLoginInput(String login) {
+        WebElement loginInput = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
+        loginInput.sendKeys(User.USER_NAME);
         return this;
     }
 
-    public Steps inputLogin(String login) {
-        WebElement inputLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
-        inputLogin.sendKeys(User.LOGIN_TEXT);
+
+    public Steps userPasswordInput(String password) {
+        WebElement PasswordInput = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
+        PasswordInput.sendKeys(User.USER_PASSWORD);
         return this;
     }
 
-    public Steps inputPassword(String password) {
-        WebElement inputPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
-        inputPassword.sendKeys(User.PASSWORD_TEXT);
+    public Steps buttonUserAccountLogin() {
+        WebElement buttonAccountLogin = driver.findElement(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION));
+        buttonAccountLogin.click();
         return this;
     }
 
-    public Steps buttonAutorization() {
-        WebElement btnAuthorization = driver.findElement(By.xpath(Pages.BTM_SUBMIT));
-        btnAuthorization.click();
+    public Steps checkUserAccount() {
+        WebElement checkUserAccount = driver.findElement(By.xpath(Pages.CHECK_AUTHORIZATION));
+        checkUserAccount.getText();
         return this;
     }
 
-    public Steps checkProfile() {
-        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.AUTHORIZATION_PROFILE));
-        authorizationProfile.getText();
+    public Steps invalidUserLogin() {
+        WebElement invalidUserLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
+        invalidUserLogin.sendKeys(User.INVALID_USER_NAME);
         return this;
     }
 
-    public Steps checkInvalidLogin() {
+    public Steps invalidUserPassword() {
         Faker fakerLogin = new Faker(new Random(24));
-        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
-        authorizationProfile.sendKeys(fakerLogin.name());
-        return this;
-    }
-    public Steps checkInvalidPassword() {
-        Faker fakerLogin = new Faker(new Random(24));
-        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
-        authorizationProfile.sendKeys(fakerLogin.name());
-        return this;
-    }
-    public Steps checkInvalidEmptyInput() {
-        WebElement authorizationProfile = driver.findElement(By.xpath(Pages.));
-        authorizationProfile.getText();
+        WebElement invalidUserPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
+        invalidUserPassword.sendKeys(User.INVALID_USER_PASSWORD);
         return this;
     }
 
-    public Steps buttonExitAuthorization() {
-        WebElement btnExit = driver.findElement(By.xpath(Pages.EXIT));
-        btnExit.click();
+    public Steps checkInvalidText() {
+        WebElement checkInvalidText = driver.findElement(By.xpath(Pages.ERROR));
+        checkInvalidText.getText();
         return this;
     }
 
-    public Steps getTextAboutExitAuthorization() {
-        WebElement textInput = driver.findElement(By.xpath(Pages.INVITATION_INPUT));
-        textInput.getText();
+    public Steps buttonExitUserAccount() {
+        WebElement buttonExitUserAccount = driver.findElement(By.xpath(Pages.USER_ACCOUNT_OUTPUT));
+        buttonExitUserAccount.click();
+        return this;
+    }
+
+    public Steps emptyAccountLogin() {
+        WebElement emptyAccountLogin = driver.findElement(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION));
         return this;
     }
 
     public Steps inputSearchingText() {
-        WebElement searchGame = driver.findElement(By.xpath(Pages.SEARCH));
-        searchGame.sendKeys(Search.SEARCH_TEXT);
+        WebElement inputSearchingText = driver.findElement(By.xpath(Pages.INPUT_SEARCHING_TEXT));
+        inputSearchingText.sendKeys(Search.SEARCH_TEXT);
         return this;
     }
 
     public Steps buttonSearch() {
-        WebElement btnSearch = driver.findElement(By.xpath(Pages.BTN_SEARCH));
-        btnSearch.click();
+        WebElement buttonSearch = driver.findElement(By.xpath(Pages.BUTTON_SEARCH));
+        buttonSearch.click();
         return this;
     }
 
-    public Steps inputTheFound() {
-        WebElement findGame = driver.findElement(By.xpath(Pages.FOUND_GAME));
-        findGame.click();
+    public Steps selectFound() {
+        WebElement selectFound = driver.findElement(By.xpath(Pages.ADD_IN_CARD_FOUNDING_GAME));
+        selectFound.click();
         return this;
     }
 
     public Steps buttonPutInCart() {
-        WebElement putBasket = driver.findElement(By.xpath(Pages.PUT_BASKET));
-        putBasket.click();
+        WebElement putInCard = driver.findElement(By.xpath(Pages.INPUT_CARD));
+        putInCard.click();
         return this;
     }
 
-    public Steps seeInCart() {
-        WebElement seeBasket = driver.findElement(By.xpath(Pages.SEE_BASKET));
-        seeBasket.click();
+    public Steps seeProductInCart() {
+        WebElement seeProductInCard = driver.findElement(By.xpath(Pages.SEE_PRODUCT_IN_CARD));
+        seeProductInCard.getText();
         return this;
     }
 
-    public Steps checkAvailabilityInCart() {
-        WebElement gameInBasket = driver.findElement(By.xpath(Pages.GAME_IN_BASKET));
-        gameInBasket.getText();
+    public Steps deleteProductFromCard() {
+        WebElement deleteProductFromCard = driver.findElement(By.xpath(Pages.DELETE_PRODUCT_FROM_CARD));
+        deleteProductFromCard.click();
         return this;
     }
-
+    public Steps checkEmptyCard() {
+        WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_EMPTY_CARD));
+        checkEmptyCard.click();
+        return this;
 }
