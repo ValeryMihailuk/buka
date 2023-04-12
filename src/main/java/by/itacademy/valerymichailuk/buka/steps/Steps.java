@@ -3,7 +3,6 @@ package by.itacademy.valerymichailuk.buka.steps;
 import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
 import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.user.User;
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,14 +29,14 @@ public class Steps {
 
     }
 
-    public Steps userLoginInput(String login) {
+    public Steps userLoginInput() {
         WebElement loginInput = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
         loginInput.sendKeys(User.USER_NAME);
         return this;
     }
 
 
-    public Steps userPasswordInput(String password) {
+    public Steps userPasswordInput() {
         WebElement PasswordInput = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
         PasswordInput.sendKeys(User.USER_PASSWORD);
         return this;
@@ -62,17 +61,29 @@ public class Steps {
     }
 
     public Steps invalidUserPassword() {
-        Faker fakerLogin = new Faker(new Random(24));
         WebElement invalidUserPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
         invalidUserPassword.sendKeys(User.INVALID_USER_PASSWORD);
         return this;
     }
 
-    public Steps checkInvalidText() {
-        WebElement checkInvalidText = driver.findElement(By.xpath(Pages.ERROR));
-        checkInvalidText.getText();
+    public Steps checkInvalidLoginText() {
+        WebElement checkInvalidLoginText = driver.findElement(By.xpath(Pages.ERROR));
+        checkInvalidLoginText.getText();
         return this;
     }
+
+    public Steps checkInvalidPasswordText() {
+        WebElement checkInvalidPasswordText = driver.findElement(By.xpath(Pages.ERROR));
+        checkInvalidPasswordText.getText();
+        return this;
+    }
+
+    public Steps checkInvalidLoginAndPasswordText() {
+        WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR_LOGIN_AND_PASSWORD));
+        checkInvalidLoginAndPasswordText.getText();
+        return this;
+    }
+
 
     public Steps buttonExitUserAccount() {
         WebElement buttonExitUserAccount = driver.findElement(By.xpath(Pages.USER_ACCOUNT_OUTPUT));
