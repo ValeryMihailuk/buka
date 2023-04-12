@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.concurrent.TimeUnit;
+
 public class AvtoDriver {
     private AvtoDriver() {
     }
@@ -14,6 +16,7 @@ if (driver==null) {
     chromeOptions.addArguments("--remote-allow-origins=*",
             "--start-maximized=*","--disable-infobars=*");
     driver = new ChromeDriver(chromeOptions);
+    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 }
 return driver;
     }
