@@ -46,11 +46,13 @@ public class Steps {
         buttonAccountLogin.click();
         return this;
     }
+
     public Steps userAccounAftertLogin() {
         WebElement buttonAccount = driver.findElement(By.xpath(Pages.ACCOUNT_AFTER_AUTHORIZATION));
         buttonAccount.click();
         return this;
     }
+
     public String checkUserAccount() {
         WebElement checkUserAccount = driver.findElement(By.xpath(Pages.CHECK_AUTHORIZATION));
         return checkUserAccount.getText();
@@ -68,22 +70,19 @@ public class Steps {
         return this;
     }
 
-    public Steps checkInvalidLoginText() {
+    public String checkInvalidLoginText() {
         WebElement checkInvalidLoginText = driver.findElement(By.xpath(Pages.ERROR));
-        checkInvalidLoginText.getText();
-        return this;
+        return checkInvalidLoginText.getText();
     }
 
-    public Steps checkInvalidPasswordText() {
+    public String checkInvalidPasswordText() {
         WebElement checkInvalidPasswordText = driver.findElement(By.xpath(Pages.ERROR));
-        checkInvalidPasswordText.getText();
-        return this;
+        return checkInvalidPasswordText.getText();
     }
 
-    public Steps checkInvalidLoginAndPasswordText() {
+    public String checkInvalidLoginAndPasswordText() {
         WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR_LOGIN_AND_PASSWORD));
-        checkInvalidLoginAndPasswordText.getText();
-        return this;
+        return checkInvalidLoginAndPasswordText.getText();
     }
 
 
@@ -122,10 +121,9 @@ public class Steps {
         return this;
     }
 
-    public Steps seeProductInCart() {
+    public String seeProductInCart() {
         WebElement seeProductInCard = driver.findElement(By.xpath(Pages.SEE_PRODUCT_IN_CARD));
-        seeProductInCard.getText();
-        return this;
+        return seeProductInCard.getText();
     }
 
     public Steps deleteProductFromCard() {
