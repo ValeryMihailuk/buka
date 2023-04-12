@@ -11,7 +11,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-
 public class TestsUI {
     Steps steps;
 
@@ -67,6 +66,7 @@ public class TestsUI {
         Assert.assertEquals(User.ERROR_LOGIN_TEXT, steps.checkInvalidLoginText());
     }
 
+    @Test
     public void testInvalidPasswordAuthorization() {
         steps.userAccountLogin().
                 invalidUserPassword().
@@ -75,6 +75,7 @@ public class TestsUI {
         Assert.assertEquals(User.ERROR_PASSWORD_TEXT, steps.checkInvalidPasswordText());
     }
 
+    @Test
     public void testInvalidLoginAndPasswordAuthorization() {
         steps.userAccountLogin().
                 invalidUserLogin().
