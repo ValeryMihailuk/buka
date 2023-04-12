@@ -1,15 +1,12 @@
 package by.itacademy.valerymichailuk.buka.api;
 
 import org.json.simple.JSONObject;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import by.itacademy.valerymichailuk.buka.user.User;
-
+import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
 public class TestAPI {
     @Test
-    @DisplayName("Post422BadLoginPwd")
     public void testPost422() {
         JSONObject request = new JSONObject();
         request.put("login", "err");
@@ -24,7 +21,6 @@ public class TestAPI {
     }
 
     @Test
-    @DisplayName("Post403BadPwd")
     public void testPost403() {
         JSONObject request = new JSONObject();
         request.put("login", User.USER_NAME);
@@ -37,8 +33,8 @@ public class TestAPI {
                 then().statusCode(403)
                 .log().all();
     }
+
     @Test
-    @DisplayName("Post200Authorization")
     public void testPost200() {
         JSONObject request = new JSONObject();
         request.put("login", User.USER_NAME);

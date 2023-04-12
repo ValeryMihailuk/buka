@@ -12,13 +12,13 @@ import by.itacademy.valerymichailuk.buka.search.Search;
 import java.util.Random;
 
 public class Steps {
-    WebDriver driver;
+    protected WebDriver driver;
 
-    Steps(WebDriver driver) {
+    public Steps() {
         this.driver = AvtoDriver.getDriver();
     }
 
-    public Steps openBuka() {
+    public Steps openPage() {
         driver.get(Pages.URL);
         return this;
     }
@@ -120,8 +120,10 @@ public class Steps {
         deleteProductFromCard.click();
         return this;
     }
+
     public Steps checkEmptyCard() {
         WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_EMPTY_CARD));
         checkEmptyCard.click();
         return this;
+    }
 }
