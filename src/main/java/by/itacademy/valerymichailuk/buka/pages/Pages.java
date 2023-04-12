@@ -4,12 +4,13 @@ package by.itacademy.valerymichailuk.buka.pages;
 public class Pages {
     public static final String URL = "https://www.shop.buka.ru/";
     public static final String ACCOUNT = "//*[@data-variant='normal']/div/a/img";
+    public static final String ACCOUNT_AFTER_AUTHORIZATION = "//*[@src='/media/new_img/ico-user.png']";
     public static final String BUTTON_INPUT_AUTHORIZATION = "//*[@class='btn-red width-100']";
     public static final String LOGIN_INPUT = "//*[@name='login']";
     public static final String PASSWORD_INPUT = "//*[@name='pwd']";
     public static final String ERROR_LOGIN_AND_PASSWORD = "//*[@class='error-login']/ul/li[2]";
     public static final String ERROR = "//*[@class='error-login']/ul/li";
-    public static final String CHECK_AUTHORIZATION = "(//*[@href='/profile'])[2]";
+    public static final String CHECK_AUTHORIZATION = "//*[@class='h2']";
     public static final String USER_ACCOUNT_OUTPUT = "(//*[@href='/logout'])[1]";
     public static final String INPUT_SEARCHING_TEXT = "//*[@name='search']";
     public static final String BUTTON_SEARCH = "//*[@id='showSearchResults']";

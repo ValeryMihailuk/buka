@@ -6,33 +6,6 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
 public class TestAPI {
-    @Test
-    public void testPost422() {
-        JSONObject request = new JSONObject();
-        request.put("login", "err");
-        request.put("pwd", "err2");
-        baseURI = "https://shop.buka.ru/api";
-        given().
-                body(request.toJSONString()).
-                when().
-                post("/f/v2/auth/login").
-                then().statusCode(422)
-                .log().all();
-    }
-
-    @Test
-    public void testPost403() {
-        JSONObject request = new JSONObject();
-        request.put("login", User.USER_NAME);
-        request.put("pwd", "err");
-        baseURI = "https://shop.buka.ru/api";
-        given().
-                body(request.toJSONString()).
-                when().
-                post("/f/v2/auth/login").
-                then().statusCode(403)
-                .log().all();
-    }
 
     @Test
     public void testPost200() {
@@ -47,4 +20,62 @@ public class TestAPI {
                 then().statusCode(200)
                 .log().all();
     }
+    @Test
+    public void testPostNewProfile200() {
+        JSONObject request = new JSONObject();
+        request.put("login", "err");
+        request.put("pwd", "err2");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/login").
+                then().statusCode(422)
+                .log().all();
+    }
+    @Test
+    public void testPost502() {
+        JSONObject request = new JSONObject();
+        request.put("email", "doggi2000@mail.ru");
+        request.put("name", "Rat");
+        request.put("lastName", "Junior");
+        request.put("", "");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/register").
+                then().statusCode(502)
+                .log().all();
+    }
+    @Test
+    public void testPost50() {
+        JSONObject request = new JSONObject();
+        request.put("email", "doggi2000@mail.ru");
+        request.put("name", "Rat");
+        request.put("approvePersDataProcessing" , "");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/register").
+                then().statusCode(502)
+                .log().all();
+    }
+
+    @Test
+    public void testPost422() {
+        JSONObject request = new JSONObject();
+        request.put("login", User.USER_NAME);
+        request.put("pwd", "");
+        request.put("", "");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/login").
+                then().statusCode(422)
+                .log().all();
+    }
+
 }

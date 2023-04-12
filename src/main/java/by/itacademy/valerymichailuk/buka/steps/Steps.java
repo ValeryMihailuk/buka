@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import by.itacademy.valerymichailuk.buka.search.Search;
 
-import java.util.Random;
 
 public class Steps {
     protected WebDriver driver;
@@ -47,11 +46,14 @@ public class Steps {
         buttonAccountLogin.click();
         return this;
     }
-
-    public Steps checkUserAccount() {
-        WebElement checkUserAccount = driver.findElement(By.xpath(Pages.CHECK_AUTHORIZATION));
-        checkUserAccount.getText();
+    public Steps userAccounAftertLogin() {
+        WebElement buttonAccount = driver.findElement(By.xpath(Pages.ACCOUNT_AFTER_AUTHORIZATION));
+        buttonAccount.click();
         return this;
+    }
+    public String checkUserAccount() {
+        WebElement checkUserAccount = driver.findElement(By.xpath(Pages.CHECK_AUTHORIZATION));
+        return checkUserAccount.getText();
     }
 
     public Steps invalidUserLogin() {
@@ -91,9 +93,9 @@ public class Steps {
         return this;
     }
 
-    public Steps emptyAccountLogin() {
+    public String emptyAccountLogin() {
         WebElement emptyAccountLogin = driver.findElement(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION));
-        return this;
+        return emptyAccountLogin.getText();
     }
 
     public Steps inputSearchingText() {

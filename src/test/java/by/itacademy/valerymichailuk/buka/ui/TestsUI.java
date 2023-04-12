@@ -25,7 +25,8 @@ public class TestsUI {
         steps.userAccountLogin().
                 userLoginInput().
                 userPasswordInput().
-                buttonUserAccountLogin();
+                buttonUserAccountLogin().
+                userAccounAftertLogin();
         Assert.assertEquals(User.USER_NAME, steps.checkUserAccount());
 
     }
