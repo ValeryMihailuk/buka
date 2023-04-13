@@ -1,7 +1,7 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
 import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
-import by.itacademy.valerymichailuk.buka.pages.Pages;
+import by.itacademy.valerymichailuk.buka.search.Search;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.Assert;
@@ -25,7 +25,7 @@ public class TestsUI {
                 userLoginInput().
                 userPasswordInput().
                 buttonUserAccountLogin().
-                userAccounAftertLogin();
+                userAccountAfterLogin();
         Assert.assertEquals(User.USER_NAME,
                 steps.checkUserAccount());
 
@@ -38,9 +38,10 @@ public class TestsUI {
                 selectFound().
                 buttonPutInCart().
                 seeProductInCart().
-                checkEmptyCard();
-        Assert.assertEquals(User.EMPTY_CARD_TEXT,
-                steps.checkEmptyCard());
+                putProductFromCard().
+                checkProductInCard();
+        Assert.assertEquals(Search.PRODUCT_IN_CARD_TEXT,
+                steps.checkProductInCard());
     }
 
     @Test

@@ -47,7 +47,7 @@ public class Steps {
         return this;
     }
 
-    public Steps userAccounAftertLogin() {
+    public Steps userAccountAfterLogin() {
         WebElement buttonAccount = driver.findElement(By.xpath(Pages.ACCOUNT_AFTER_AUTHORIZATION));
         buttonAccount.click();
         return this;
@@ -128,8 +128,14 @@ public class Steps {
         return this;
     }
 
-    public String checkEmptyCard() {
-        WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_EMPTY_CARD));
+    public Steps putProductFromCard() {
+        WebElement deleteProductFromCard = driver.findElement(By.xpath(Pages.PUT_PRODUCT_IN_CARD));
+        deleteProductFromCard.click();
+        return this;
+    }
+
+    public String checkProductInCard() {
+        WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_PRODUCT_IN_CARD));
         return checkEmptyCard.getText();
     }
 }
