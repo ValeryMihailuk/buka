@@ -59,7 +59,8 @@ public class TestsUI {
                 invalidUserPassword().
                 userLoginInput().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_PASSWORD_TEXT, steps.checkInvalidPasswordText());
+        Assert.assertEquals(User.ERROR_PASSWORD_TEXT,
+                steps.checkInvalidPasswordText());
     }
 
     @Test
