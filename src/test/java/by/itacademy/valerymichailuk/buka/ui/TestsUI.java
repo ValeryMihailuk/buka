@@ -1,20 +1,17 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
 import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
-import by.itacademy.valerymichailuk.buka.pages.Pages;
+import by.itacademy.valerymichailuk.buka.search.Search;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
-import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 
 public class TestsUI {
     Steps steps;
 
-    @BeforeTest
+    @BeforeClass
     public void warmUp() {
         steps = new Steps();
         steps.openPage();
@@ -26,8 +23,8 @@ public class TestsUI {
                 userLoginInput().
                 userPasswordInput().
                 buttonUserAccountLogin().
-                userAccounAftertLogin();
-        Assert.assertEquals(User.USER_NAME,
+                userAccountAfterLogin();
+        Assert.assertEquals(User.NEW_USER_NAME,
                 steps.checkUserAccount());
 
     }
@@ -39,9 +36,10 @@ public class TestsUI {
                 selectFound().
                 buttonPutInCart().
                 seeProductInCart().
-                deleteProductFromCard().
-                checkEmptyCard();
-        Assert.assertEquals(User.EMPTY_CARD_TEXT, steps.checkEmptyCard());
+                putProductFromCard().
+                checkProductInCard();
+        Assert.assertEquals(Search.PRODUCT_IN_CARD_TEXT,
+                steps.checkProductInCard());
     }
 
     @Test
@@ -50,7 +48,8 @@ public class TestsUI {
                 invalidUserLogin().
                 userPasswordInput().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_LOGIN_TEXT, steps.checkInvalidLoginText());
+        Assert.assertEquals(User.ERROR_TEXT,
+                steps.checkInvalidLoginText());
     }
 
     @Test
@@ -59,19 +58,31 @@ public class TestsUI {
                 invalidUserPassword().
                 userLoginInput().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_PASSWORD_TEXT, steps.checkInvalidPasswordText());
+        Assert.assertEquals(User.ERROR_TEXT,
+                steps.checkInvalidPasswordText());
     }
 
     @Test
-    public void testInvalidLoginAndPasswordAuthorization() {
+    public void testEmptyPasswordAuthorization() {
         steps.userAccountLogin().
-                invalidUserLogin().
-                invalidUserPassword().
+                emptyUserPassword().
+                emptyUserLogin().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_PASSWORD_TEXT, steps.checkInvalidLoginAndPasswordText());
+        Assert.assertEquals(User.ERROR_EMPTY_PASSWORD_TEXT,
+                steps.checkInvalidLoginAndPasswordText());
     }
 
-    @AfterTest
+    @Test
+    public void testEmptyLoginAuthorization() {
+        steps.userAccountLogin().
+                invalidUserPassword().
+                emptyUserLogin().
+                buttonUserAccountLogin();
+        Assert.assertEquals(User.ERROR_EMPTY_LOGIN_TEXT,
+                steps.checkInvalidLoginAndPasswordText());
+    }
+
+    @AfterClass
     public void closeTestBuka() {
         AvtoDriver.closeDriver();
     }

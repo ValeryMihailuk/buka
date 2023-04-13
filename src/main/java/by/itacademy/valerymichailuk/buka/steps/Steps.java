@@ -30,14 +30,14 @@ public class Steps {
 
     public Steps userLoginInput() {
         WebElement loginInput = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
-        loginInput.sendKeys(User.USER_NAME);
+        loginInput.sendKeys(User.NEW_USER_NAME);
         return this;
     }
 
 
     public Steps userPasswordInput() {
         WebElement PasswordInput = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
-        PasswordInput.sendKeys(User.USER_PASSWORD);
+        PasswordInput.sendKeys(User.NEW_USER_PASSWORD);
         return this;
     }
 
@@ -47,7 +47,7 @@ public class Steps {
         return this;
     }
 
-    public Steps userAccounAftertLogin() {
+    public Steps userAccountAfterLogin() {
         WebElement buttonAccount = driver.findElement(By.xpath(Pages.ACCOUNT_AFTER_AUTHORIZATION));
         buttonAccount.click();
         return this;
@@ -81,20 +81,21 @@ public class Steps {
     }
 
     public String checkInvalidLoginAndPasswordText() {
-        WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR_LOGIN_AND_PASSWORD));
+        WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR));
         return checkInvalidLoginAndPasswordText.getText();
     }
 
 
-    public Steps buttonExitUserAccount() {
-        WebElement buttonExitUserAccount = driver.findElement(By.xpath(Pages.USER_ACCOUNT_OUTPUT));
-        buttonExitUserAccount.click();
+    public Steps emptyUserPassword() {
+        WebElement emptyUserPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
+        emptyUserPassword.sendKeys(User.EMPTY_USER_PASSWORD);
         return this;
     }
 
-    public String emptyAccountLogin() {
-        WebElement emptyAccountLogin = driver.findElement(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION));
-        return emptyAccountLogin.getText();
+    public Steps emptyUserLogin() {
+        WebElement emptyUserLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
+        emptyUserLogin.sendKeys(User.EMPTY_USER_NAME);
+        return this;
     }
 
     public Steps inputSearchingText() {
@@ -127,14 +128,14 @@ public class Steps {
         return this;
     }
 
-    public Steps deleteProductFromCard() {
-        WebElement deleteProductFromCard = driver.findElement(By.xpath(Pages.DELETE_PRODUCT_FROM_CARD));
+    public Steps putProductFromCard() {
+        WebElement deleteProductFromCard = driver.findElement(By.xpath(Pages.PUT_PRODUCT_IN_CARD));
         deleteProductFromCard.click();
         return this;
     }
 
-    public String checkEmptyCard() {
-        WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_EMPTY_CARD));
+    public String checkProductInCard() {
+        WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_PRODUCT_IN_CARD));
         return checkEmptyCard.getText();
     }
 }

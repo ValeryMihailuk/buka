@@ -3,68 +3,70 @@ package by.itacademy.valerymichailuk.buka.api;
 import org.json.simple.JSONObject;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.*;
 
 public class TestAPI {
 
     @Test
-    public void testPost200() {
+    public void testPostAuthorization200() {
         JSONObject request = new JSONObject();
-        request.put("login", User.USER_NAME);
-        request.put("pwd", User.USER_PASSWORD);
+        request.put("login", User.NEW_USER_NAME);
+        request.put("pwd", User.NEW_USER_PASSWORD);
         baseURI = "https://shop.buka.ru/api";
         given().
                 body(request.toJSONString()).
                 when().
                 post("/f/v2/auth/login").
-                then().statusCode(200)
-                .log().all();
-    }
-    @Test
-    public void testPostNewProfile200() {
-        JSONObject request = new JSONObject();
-        request.put("login", "err");
-        request.put("pwd", "err2");
-        baseURI = "https://shop.buka.ru/api";
-        given().
-                body(request.toJSONString()).
-                when().
-                post("/f/v2/auth/login").
-                then().statusCode(422)
-                .log().all();
-    }
-    @Test
-    public void testPost502() {
-        JSONObject request = new JSONObject();
-        request.put("email", "doggi2000@mail.ru");
-        request.put("name", "Rat");
-        request.put("lastName", "Junior");
-        request.put("", "");
-        baseURI = "https://shop.buka.ru/api";
-        given().
-                body(request.toJSONString()).
-                when().
-                post("/f/v2/auth/register").
-                then().statusCode(502)
-                .log().all();
-    }
-    @Test
-    public void testPost50() {
-        JSONObject request = new JSONObject();
-        request.put("email", "doggi2000@mail.ru");
-        request.put("name", "Rat");
-        request.put("approvePersDataProcessing" , "");
-        baseURI = "https://shop.buka.ru/api";
-        given().
-                body(request.toJSONString()).
-                when().
-                post("/f/v2/auth/register").
-                then().statusCode(502)
-                .log().all();
+                then().statusCode(200);
     }
 
     @Test
-    public void testPost422() {
+    public void testPostResetPassword200() {
+        JSONObject request = new JSONObject();
+        request.put("email", User.USER_NAME);
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/pwd-reset").
+                then().statusCode(200);
+    }
+
+    @Test
+    public void testPostAddInvalidLogin422() {
+        JSONObject request = new JSONObject();
+        request.put("email", "monkeyGOhome@gmail.ru");
+        request.put("name", "Fixik");
+        request.put("lastName", "Nolik");
+        request.put("approvePersDataProcessing", "true");
+        request.put("newsmailing", "false");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/register").
+                then().statusCode(422);
+    }
+
+    @Test
+    public void testPostNotApprovePersonalData422() {
+        JSONObject request = new JSONObject();
+        request.put("email", "monkeyGOhome@gmail.ru");
+        request.put("name", "Fixik");
+        request.put("lastName", "Nolik");
+        request.put("approvePersDataProcessing", "false");
+        request.put("newsmailing", "false");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/f/v2/auth/register").
+                then().statusCode(422);
+    }
+
+    @Test
+    public void testPostInvalidAuthorization422() {
         JSONObject request = new JSONObject();
         request.put("login", User.USER_NAME);
         request.put("pwd", "");
@@ -74,8 +76,32 @@ public class TestAPI {
                 body(request.toJSONString()).
                 when().
                 post("/f/v2/auth/login").
-                then().statusCode(422)
-                .log().all();
+                then().statusCode(422);
     }
 
+    @Test
+    public void testGetCapcha404() {
+        JSONObject request = new JSONObject();
+        request.put("ok", "true");
+        request.put("id", "14456764387538349f8");
+        request.put("ttl", "120000");
+        baseURI = "https://shop.buka.ru/api";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/api/f/v2/captcha").
+                then().statusCode(404);
+    }
+
+    @Test
+    public void testGetBonus404() {
+        JSONObject request = new JSONObject();
+        request.put("key", "fox");
+        baseURI = "https://shop.buka.ru";
+        given().
+                body(request.toJSONString()).
+                when().
+                post("/profile/activbonus").
+                then().statusCode(404);
+    }
 }

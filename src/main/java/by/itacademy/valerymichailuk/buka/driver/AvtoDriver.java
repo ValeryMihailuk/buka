@@ -9,18 +9,21 @@ import java.util.concurrent.TimeUnit;
 public class AvtoDriver {
     private AvtoDriver() {
     }
-    private  static WebDriver driver;
-    public static WebDriver getDriver(){
-if (driver==null) {
-    ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.addArguments("--remote-allow-origins=*", "--start-maximized=*");
-    driver = new ChromeDriver(chromeOptions);
-    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-}
-return driver;
+
+    private static WebDriver driver;
+
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--remote-allow-origins=*", "--start-maximized=*");
+            driver = new ChromeDriver(chromeOptions);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        }
+        return driver;
     }
+
     public static void closeDriver() {
-        if (driver!=null) {
+        if (driver != null) {
             driver.quit();
         }
     }
