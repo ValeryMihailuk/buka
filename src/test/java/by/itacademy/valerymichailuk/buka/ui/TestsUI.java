@@ -65,10 +65,11 @@ public class TestsUI {
     @Test
     public void testEmptyLoginAndPasswordAuthorization() {
         steps.userAccountLogin().
-                invalidUserLogin().
-                invalidUserPassword().
+                emptyUserPassword().
+                emptyUserLogin().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_TEXT, steps.checkInvalidLoginAndPasswordText());
+        Assert.assertEquals(User.ERROR_EMPTY_PASSWORD_TEXT,
+                steps.checkInvalidLoginAndPasswordText());
     }
 
     @AfterTest

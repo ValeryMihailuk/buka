@@ -86,17 +86,16 @@ public class Steps {
     }
 
 
-    public Steps buttonExitUserAccount() {
-        WebElement buttonExitUserAccount = driver.findElement(By.xpath(Pages.USER_ACCOUNT_OUTPUT));
-        buttonExitUserAccount.click();
+    public Steps emptyUserPassword() {
+        WebElement emptyUserPassword = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
+        emptyUserPassword.sendKeys(User.EMPTY_USER_PASSWORD);
         return this;
     }
-
-    public String emptyAccountLogin() {
-        WebElement emptyAccountLogin = driver.findElement(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION));
-        return emptyAccountLogin.getText();
+    public Steps emptyUserLogin() {
+        WebElement emptyUserLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
+        emptyUserLogin.sendKeys(User.EMPTY_USER_NAME);
+        return this;
     }
-
     public Steps inputSearchingText() {
         WebElement inputSearchingText = driver.findElement(By.xpath(Pages.INPUT_SEARCHING_TEXT));
         inputSearchingText.sendKeys(Search.SEARCH_TEXT);
