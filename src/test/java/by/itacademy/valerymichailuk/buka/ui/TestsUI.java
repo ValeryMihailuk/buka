@@ -1,10 +1,8 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
 import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
-import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -50,7 +48,8 @@ public class TestsUI {
                 invalidUserLogin().
                 userPasswordInput().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_LOGIN_TEXT, steps.checkInvalidLoginText());
+        Assert.assertEquals(User.ERROR_TEXT,
+                steps.checkInvalidLoginText());
     }
 
     @Test
@@ -59,7 +58,7 @@ public class TestsUI {
                 invalidUserPassword().
                 userLoginInput().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_PASSWORD_TEXT,
+        Assert.assertEquals(User.ERROR_TEXT,
                 steps.checkInvalidPasswordText());
     }
 
@@ -69,7 +68,7 @@ public class TestsUI {
                 invalidUserLogin().
                 invalidUserPassword().
                 buttonUserAccountLogin();
-        Assert.assertEquals(User.ERROR_PASSWORD_TEXT, steps.checkInvalidLoginAndPasswordText());
+        Assert.assertEquals(User.ERROR_TEXT, steps.checkInvalidLoginAndPasswordText());
     }
 
     @AfterTest
