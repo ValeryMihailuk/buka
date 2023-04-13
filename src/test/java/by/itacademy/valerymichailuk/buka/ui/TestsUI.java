@@ -5,15 +5,13 @@ import by.itacademy.valerymichailuk.buka.search.Search;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 
 public class TestsUI {
     Steps steps;
 
-    @BeforeTest
+    @BeforeClass
     public void warmUp() {
         steps = new Steps();
         steps.openPage();
@@ -26,7 +24,7 @@ public class TestsUI {
                 userPasswordInput().
                 buttonUserAccountLogin().
                 userAccountAfterLogin();
-        Assert.assertEquals(User.USER_NAME,
+        Assert.assertEquals(User.NEW_USER_NAME,
                 steps.checkUserAccount());
 
     }
@@ -84,7 +82,7 @@ public class TestsUI {
                 steps.checkInvalidLoginAndPasswordText());
     }
 
-    @AfterTest
+    @AfterClass
     public void closeTestBuka() {
         AvtoDriver.closeDriver();
     }

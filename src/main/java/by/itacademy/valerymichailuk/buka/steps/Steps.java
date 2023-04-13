@@ -30,14 +30,14 @@ public class Steps {
 
     public Steps userLoginInput() {
         WebElement loginInput = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
-        loginInput.sendKeys(User.USER_NAME);
+        loginInput.sendKeys(User.NEW_USER_NAME);
         return this;
     }
 
 
     public Steps userPasswordInput() {
         WebElement PasswordInput = driver.findElement(By.xpath(Pages.PASSWORD_INPUT));
-        PasswordInput.sendKeys(User.USER_PASSWORD);
+        PasswordInput.sendKeys(User.NEW_USER_PASSWORD);
         return this;
     }
 
