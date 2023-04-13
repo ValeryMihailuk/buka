@@ -1,6 +1,7 @@
 package by.itacademy.valerymichailuk.buka.ui;
 
 import by.itacademy.valerymichailuk.buka.driver.AvtoDriver;
+import by.itacademy.valerymichailuk.buka.pages.Pages;
 import by.itacademy.valerymichailuk.buka.steps.Steps;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.Assert;
@@ -37,9 +38,9 @@ public class TestsUI {
                 selectFound().
                 buttonPutInCart().
                 seeProductInCart().
-                deleteProductFromCard().
                 checkEmptyCard();
-        Assert.assertEquals(User.EMPTY_CARD_TEXT, steps.checkEmptyCard());
+        Assert.assertEquals(User.EMPTY_CARD_TEXT,
+                steps.checkEmptyCard());
     }
 
     @Test
@@ -63,12 +64,22 @@ public class TestsUI {
     }
 
     @Test
-    public void testEmptyLoginAndPasswordAuthorization() {
+    public void testEmptyPasswordAuthorization() {
         steps.userAccountLogin().
                 emptyUserPassword().
                 emptyUserLogin().
                 buttonUserAccountLogin();
         Assert.assertEquals(User.ERROR_EMPTY_PASSWORD_TEXT,
+                steps.checkInvalidLoginAndPasswordText());
+    }
+
+    @Test
+    public void testEmptyLoginAuthorization() {
+        steps.userAccountLogin().
+                invalidUserPassword().
+                emptyUserLogin().
+                buttonUserAccountLogin();
+        Assert.assertEquals(User.ERROR_EMPTY_LOGIN_TEXT,
                 steps.checkInvalidLoginAndPasswordText());
     }
 

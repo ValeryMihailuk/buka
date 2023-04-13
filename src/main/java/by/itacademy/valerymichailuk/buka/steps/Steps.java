@@ -81,7 +81,7 @@ public class Steps {
     }
 
     public String checkInvalidLoginAndPasswordText() {
-        WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR_LOGIN_AND_PASSWORD));
+        WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR));
         return checkInvalidLoginAndPasswordText.getText();
     }
 
@@ -91,11 +91,13 @@ public class Steps {
         emptyUserPassword.sendKeys(User.EMPTY_USER_PASSWORD);
         return this;
     }
+
     public Steps emptyUserLogin() {
         WebElement emptyUserLogin = driver.findElement(By.xpath(Pages.LOGIN_INPUT));
         emptyUserLogin.sendKeys(User.EMPTY_USER_NAME);
         return this;
     }
+
     public Steps inputSearchingText() {
         WebElement inputSearchingText = driver.findElement(By.xpath(Pages.INPUT_SEARCHING_TEXT));
         inputSearchingText.sendKeys(Search.SEARCH_TEXT);
@@ -123,12 +125,6 @@ public class Steps {
     public Steps seeProductInCart() {
         WebElement seeProductInCard = driver.findElement(By.xpath(Pages.SEE_PRODUCT_IN_CARD));
         seeProductInCard.click();
-        return this;
-    }
-
-    public Steps deleteProductFromCard() {
-        WebElement deleteProductFromCard = driver.findElement(By.xpath(Pages.DELETE_PRODUCT_FROM_CARD));
-        deleteProductFromCard.click();
         return this;
     }
 

@@ -8,6 +8,7 @@ public class User {
     public static final String INVALID_USER_PASSWORD = "876gfff";
     public static final String EMPTY_CARD_TEXT = "Ваша корзина пуста...";
     public static final String ERROR_EMPTY_PASSWORD_TEXT = "Не введен пароль";
+    public static final String ERROR_EMPTY_LOGIN_TEXT = "Не введено имя пользователя";
     public static final String ERROR_TEXT = "Неправильное имя пользователя или пароль";
     public static final String EMPTY_USER_NAME = "";
     public static final String EMPTY_USER_PASSWORD = "";
