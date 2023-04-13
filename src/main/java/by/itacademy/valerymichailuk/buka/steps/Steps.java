@@ -110,20 +110,21 @@ public class Steps {
     }
 
     public Steps selectFound() {
-        WebElement selectFound = driver.findElement(By.xpath(Pages.ADD_IN_CARD_FOUNDING_GAME));
+        WebElement selectFound = driver.findElement(By.xpath(Pages.OPEN_FOUND_GAME));
         selectFound.click();
         return this;
     }
 
     public Steps buttonPutInCart() {
-        WebElement putInCard = driver.findElement(By.xpath(Pages.INPUT_CARD));
+        WebElement putInCard = driver.findElement(By.xpath(Pages.ADD_IN_CARD_FOUNDING_GAME));
         putInCard.click();
         return this;
     }
 
-    public String seeProductInCart() {
+    public Steps seeProductInCart() {
         WebElement seeProductInCard = driver.findElement(By.xpath(Pages.SEE_PRODUCT_IN_CARD));
-        return seeProductInCard.getText();
+        seeProductInCard.click();
+        return this;
     }
 
     public Steps deleteProductFromCard() {
@@ -132,9 +133,8 @@ public class Steps {
         return this;
     }
 
-    public Steps checkEmptyCard() {
+    public String checkEmptyCard() {
         WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_EMPTY_CARD));
-        checkEmptyCard.click();
-        return this;
+        return checkEmptyCard.getText();
     }
 }
