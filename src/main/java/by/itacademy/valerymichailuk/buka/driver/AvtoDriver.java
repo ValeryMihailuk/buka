@@ -13,8 +13,7 @@ public class AvtoDriver {
     public static WebDriver getDriver(){
 if (driver==null) {
     ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.addArguments("--remote-allow-origins=*",
-            "--start-maximized=*","--disable-infobars=*");
+    chromeOptions.addArguments("--remote-allow-origins=*", "--start-maximized=*");
     driver = new ChromeDriver(chromeOptions);
     driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 }

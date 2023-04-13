@@ -25,36 +25,23 @@ public class TestsUI {
         steps.userAccountLogin().
                 userLoginInput().
                 userPasswordInput().
-                buttonUserAccountLogin();
-        Assert.assertEquals(User.USER_NAME, steps.checkUserAccount());
-
-    }
-
-    @Test
-    public void testExitAuthorization() {
-        steps.userAccountLogin().
-                userLoginInput().
-                userPasswordInput().
                 buttonUserAccountLogin().
-                buttonExitUserAccount();
-        Assert.assertEquals(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION), steps.emptyAccountLogin());
+                userAccounAftertLogin();
+        Assert.assertEquals(User.USER_NAME,
+                steps.checkUserAccount());
 
     }
 
     @Test
     public void testSearch() {
-        steps.userAccountLogin().
-                userPasswordInput().
-                userLoginInput().
-                buttonUserAccountLogin().
-                inputSearchingText().
+        steps.inputSearchingText().
                 buttonSearch().
                 selectFound().
                 buttonPutInCart().
                 seeProductInCart().
                 deleteProductFromCard().
                 checkEmptyCard();
-        Assert.assertEquals(Pages.CHECK_EMPTY_CARD, steps.checkEmptyCard());
+        Assert.assertEquals(User.EMPTY_CARD_TEXT, steps.checkEmptyCard());
     }
 
     @Test

@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import by.itacademy.valerymichailuk.buka.search.Search;
 
-import java.util.Random;
 
 public class Steps {
     protected WebDriver driver;
@@ -48,10 +47,15 @@ public class Steps {
         return this;
     }
 
-    public Steps checkUserAccount() {
-        WebElement checkUserAccount = driver.findElement(By.xpath(Pages.CHECK_AUTHORIZATION));
-        checkUserAccount.getText();
+    public Steps userAccounAftertLogin() {
+        WebElement buttonAccount = driver.findElement(By.xpath(Pages.ACCOUNT_AFTER_AUTHORIZATION));
+        buttonAccount.click();
         return this;
+    }
+
+    public String checkUserAccount() {
+        WebElement checkUserAccount = driver.findElement(By.xpath(Pages.CHECK_AUTHORIZATION));
+        return checkUserAccount.getText();
     }
 
     public Steps invalidUserLogin() {
@@ -66,22 +70,19 @@ public class Steps {
         return this;
     }
 
-    public Steps checkInvalidLoginText() {
+    public String checkInvalidLoginText() {
         WebElement checkInvalidLoginText = driver.findElement(By.xpath(Pages.ERROR));
-        checkInvalidLoginText.getText();
-        return this;
+        return checkInvalidLoginText.getText();
     }
 
-    public Steps checkInvalidPasswordText() {
+    public String checkInvalidPasswordText() {
         WebElement checkInvalidPasswordText = driver.findElement(By.xpath(Pages.ERROR));
-        checkInvalidPasswordText.getText();
-        return this;
+        return checkInvalidPasswordText.getText();
     }
 
-    public Steps checkInvalidLoginAndPasswordText() {
+    public String checkInvalidLoginAndPasswordText() {
         WebElement checkInvalidLoginAndPasswordText = driver.findElement(By.xpath(Pages.ERROR_LOGIN_AND_PASSWORD));
-        checkInvalidLoginAndPasswordText.getText();
-        return this;
+        return checkInvalidLoginAndPasswordText.getText();
     }
 
 
@@ -91,9 +92,9 @@ public class Steps {
         return this;
     }
 
-    public Steps emptyAccountLogin() {
+    public String emptyAccountLogin() {
         WebElement emptyAccountLogin = driver.findElement(By.xpath(Pages.BUTTON_INPUT_AUTHORIZATION));
-        return this;
+        return emptyAccountLogin.getText();
     }
 
     public Steps inputSearchingText() {
@@ -109,20 +110,20 @@ public class Steps {
     }
 
     public Steps selectFound() {
-        WebElement selectFound = driver.findElement(By.xpath(Pages.ADD_IN_CARD_FOUNDING_GAME));
+        WebElement selectFound = driver.findElement(By.xpath(Pages.OPEN_FOUND_GAME));
         selectFound.click();
         return this;
     }
 
     public Steps buttonPutInCart() {
-        WebElement putInCard = driver.findElement(By.xpath(Pages.INPUT_CARD));
+        WebElement putInCard = driver.findElement(By.xpath(Pages.ADD_IN_CARD_FOUNDING_GAME));
         putInCard.click();
         return this;
     }
 
     public Steps seeProductInCart() {
         WebElement seeProductInCard = driver.findElement(By.xpath(Pages.SEE_PRODUCT_IN_CARD));
-        seeProductInCard.getText();
+        seeProductInCard.click();
         return this;
     }
 
@@ -132,9 +133,8 @@ public class Steps {
         return this;
     }
 
-    public Steps checkEmptyCard() {
+    public String checkEmptyCard() {
         WebElement checkEmptyCard = driver.findElement(By.xpath(Pages.CHECK_EMPTY_CARD));
-        checkEmptyCard.click();
-        return this;
+        return checkEmptyCard.getText();
     }
 }
