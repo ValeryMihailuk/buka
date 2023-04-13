@@ -63,7 +63,7 @@ public class TestsUI {
     }
 
     @Test
-    public void testInvalidLoginAndPasswordAuthorization() {
+    public void testEmptyLoginAndPasswordAuthorization() {
         steps.userAccountLogin().
                 invalidUserLogin().
                 invalidUserPassword().
