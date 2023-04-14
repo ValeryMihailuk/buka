@@ -1,5 +1,6 @@
 package by.itacademy.valerymichailuk.buka.api;
 
+import by.itacademy.valerymichailuk.buka.pages.Pages;
 import org.json.simple.JSONObject;
 import by.itacademy.valerymichailuk.buka.user.User;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ public class TestAPI {
         JSONObject request = new JSONObject();
         request.put("login", User.NEW_USER_NAME);
         request.put("pwd", User.NEW_USER_PASSWORD);
-        baseURI = "https://shop.buka.ru/api";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
@@ -25,7 +26,7 @@ public class TestAPI {
     public void testPostResetPassword200() {
         JSONObject request = new JSONObject();
         request.put("email", User.USER_NAME);
-        baseURI = "https://shop.buka.ru/api";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
@@ -41,7 +42,7 @@ public class TestAPI {
         request.put("lastName", "Nolik");
         request.put("approvePersDataProcessing", "true");
         request.put("newsmailing", "false");
-        baseURI = "https://shop.buka.ru/api";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
@@ -57,7 +58,7 @@ public class TestAPI {
         request.put("lastName", "Nolik");
         request.put("approvePersDataProcessing", "false");
         request.put("newsmailing", "false");
-        baseURI = "https://shop.buka.ru/api";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
@@ -71,7 +72,7 @@ public class TestAPI {
         request.put("login", User.USER_NAME);
         request.put("pwd", "");
         request.put("", "");
-        baseURI = "https://shop.buka.ru/api";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
@@ -85,11 +86,11 @@ public class TestAPI {
         request.put("ok", "true");
         request.put("id", "14456764387538349f8");
         request.put("ttl", "120000");
-        baseURI = "https://shop.buka.ru/api";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
-                post("/api/f/v2/captcha").
+                get("/api/f/v2/captcha").
                 then().statusCode(404);
     }
 
@@ -97,11 +98,21 @@ public class TestAPI {
     public void testGetBonus404() {
         JSONObject request = new JSONObject();
         request.put("key", "fox");
-        baseURI = "https://shop.buka.ru";
+        baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
-                post("/profile/activbonus").
+                get("/profile/activbonus").
                 then().statusCode(404);
+    }
+    @Test
+    public void testGetOutLogin302() {
+        JSONObject request = new JSONObject();
+        baseURI = Pages.API_URL;
+        given().
+                body(request.toJSONString()).
+                when().
+                get("/logout").
+                then().statusCode(302);
     }
 }
