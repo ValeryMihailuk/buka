@@ -3,7 +3,7 @@ package by.itacademy.valerymichailuk.buka.pages;
 
 public class Pages {
     public static final String URL = "https://www.shop.buka.ru/";
-    public static final String ACCOUNT = "//*[@data-variant='normal']/div/a/img";
+    public static final String ACCOUNT = "//div[1]/div[1]/div/a/img[@alt='authorization']";
     public static final String ACCOUNT_AFTER_AUTHORIZATION = "//*[@src='/media/new_img/ico-user.png']";
     public static final String BUTTON_INPUT_AUTHORIZATION = "//*[@class='btn-red width-100']";
     public static final String LOGIN_INPUT = "//*[@name='login']";

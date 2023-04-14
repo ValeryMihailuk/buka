@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 public class TestsUI {
     Steps steps;
 
-    @BeforeClass
+    @BeforeTest
     public void warmUp() {
         steps = new Steps();
         steps.openPage();
@@ -82,7 +82,7 @@ public class TestsUI {
                 steps.checkInvalidLoginAndPasswordText());
     }
 
-    @AfterClass
+    @AfterTest
     public void closeTestBuka() {
         AvtoDriver.closeDriver();
     }
