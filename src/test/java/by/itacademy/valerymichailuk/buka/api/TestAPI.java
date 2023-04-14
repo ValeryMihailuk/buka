@@ -90,7 +90,7 @@ public class TestAPI {
         given().
                 body(request.toJSONString()).
                 when().
-                get("/api/f/v2/captcha").
+                get("/f/v2/captcha").
                 then().statusCode(404);
     }
 
