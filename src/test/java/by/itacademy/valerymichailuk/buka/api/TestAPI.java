@@ -84,14 +84,14 @@ public class TestAPI {
     public void testGetCapcha404() {
         JSONObject request = new JSONObject();
         request.put("ok", "true");
-        request.put("id", "14456764387538349f8");
+        request.put("id", "1445676438753838");
         request.put("ttl", "120000");
         baseURI = Pages.API_URL;
         given().
                 body(request.toJSONString()).
                 when().
-                get("/api/f/v2/captcha").
-                then().statusCode(404);
+                get("/f/v2/captcha/get").
+                then().statusCode(502);
     }
 
     @Test
