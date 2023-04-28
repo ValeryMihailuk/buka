@@ -1,5 +1,4 @@
 https://shop.buka.ru
-
 Для сборки проекта изпользован _MAVEN._
 
 Так же были использованы _TestNG, Selenium, RestAssured, JSon, Postman, Chrome DevTools._
